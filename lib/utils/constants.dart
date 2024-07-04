@@ -8,3 +8,5 @@ const String kHomeScreenRoute = "/HOME_SCREEN";
 const String kProgressScreenRoute = "/PROGRESS_SCREEN";
 const String kAffirmationScreenRoute = "/AFFIRMATION_SCREEN";
 const String kProfileScreenRoute = "/PROFILE_SCREEN";
+const String kLoginScreenRoute = "/LOGIN_SCREEN";
+const String kRegisterScreenRoute = "/REGISTER_SCREEN";

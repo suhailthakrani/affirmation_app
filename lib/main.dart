@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "Affirmation App",
-      initialRoute: kMainScreenRoute,
+      initialRoute: kLoginScreenRoute,
       initialBinding: ScreensBindings(),
       getPages: RouteManagement.getPages(),
       theme: ThemeData.dark(useMaterial3: true).copyWith(
