@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "255273154428",
+    "project_id": "affrimationapp",
+    "storage_bucket": "affrimationapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255273154428:android:ec537ac17600361bf816f9",
+        "android_client_info": {
+          "package_name": "com.example.affirmation_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANGb19MMOENao-7qK6ZtbIB2MzRJfvA3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

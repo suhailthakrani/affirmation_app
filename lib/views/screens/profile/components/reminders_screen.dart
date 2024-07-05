@@ -47,16 +47,23 @@ class RemindersScreen extends GetView<RemindersScreenController> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text("Start Time"),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 8,
+                          InkWell(
+                            onTap: () async {
+                              await controller.selectStartTime(context);
+                            },
+                            child: Obx(
+                              ()=> Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 8,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: kPrimaryColor,
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Text("${controller.startTime.value.hour}:${controller.startTime.value.minute}"),
+                              ),
                             ),
-                            decoration: BoxDecoration(
-                              color: kPrimaryColor,
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: const Text("09:00 AM"),
                           ),
                         ],
                       ),
@@ -73,16 +80,23 @@ class RemindersScreen extends GetView<RemindersScreenController> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text("End Time"),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 8,
+                          InkWell(
+                            onTap: () async {
+                              await controller.selectEndTime(context);
+                            },
+                            child: Obx(
+                              ()=> Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 8,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: kPrimaryColor,
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Text("${controller.endTime.value.hour}:${controller.endTime.value.minute}"),
+                              ),
                             ),
-                            decoration: BoxDecoration(
-                              color: kPrimaryColor,
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: const Text("10:00 AM"),
                           ),
                         ],
                       ),
@@ -261,17 +275,18 @@ class RemindersScreen extends GetView<RemindersScreenController> {
               ),
               const SizedBox(height: 20),
               GestureDetector(
-                onTap: () {
-                  Get.back();
+                onTap: () async {
+                  await controller.scheduledNotification();
                 },
                 child: Container(
                   width: Get.width,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   decoration: BoxDecoration(
-                      color: kPrimaryColor.withAlpha(150),
-                      borderRadius: BorderRadius.circular(30),
-                      border: Border.all(color: Colors.white38)),
+                    color: kPrimaryColor.withAlpha(150),
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(color: Colors.white38),
+                  ),
                   child: const Text(
                     "Allow & Save",
                     style: TextStyle(

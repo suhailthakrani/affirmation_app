@@ -1,13 +1,25 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'services/notification_service.dart';
 import 'utils/app_colors.dart';
 import 'utils/constants.dart';
 import 'utils/route_management.dart';
 import 'utils/screen_bindings.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+  // statusBarColor: kGreyColor,
+  // ));
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    // options: DefaultFirebaseOptions.currentPlatform,
+  );
+  tz.initializeTimeZones();
+  LocalNotificationService().initializeNotification();
+  runApp (const MyApp());
 }
 
 class MyApp extends StatelessWidget {

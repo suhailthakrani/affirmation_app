@@ -76,7 +76,7 @@ class AffirmationScreen extends GetView<AffirmationScreenController> {
           ),
         ),
       ),
-      bottomSheet: Container(child: Text("SCROLL UP"),),
+      bottomSheet: const Text("SCROLL UP"),
     );
   }
 }
