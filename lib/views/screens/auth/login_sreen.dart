@@ -97,8 +97,8 @@ class LoginScreen extends GetView<LoginScreenController> {
                 ),
                 const SizedBox(height: 40),
                 ElevatedButton(
-                  onPressed: () {
-                    Get.toNamed(kMainScreenRoute);
+                  onPressed: () async {
+                    await controller.login(context);
                   },
                   style: ElevatedButton.styleFrom(
                       side: const BorderSide(color: kWhiteColor),
@@ -132,12 +132,12 @@ class LoginScreen extends GetView<LoginScreenController> {
                   style: ElevatedButton.styleFrom(
                       side: const BorderSide(color: kWhiteColor),
                       fixedSize: Size(Get.width * 0.7, 45)),
-                  child: const Row(
+                  child:  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("G"),
-                      SizedBox(width: 12),
-                      Text("Sign In")
+                      Image.asset("assets/icons/afacbook.PNG", height: 30,width: 30,),
+                      const SizedBox(width: 12),
+                      const Text("Join with Facebook")
                     ],
                   ),
                 ),
@@ -147,12 +147,12 @@ class LoginScreen extends GetView<LoginScreenController> {
                   style: ElevatedButton.styleFrom(
                       side: const BorderSide(color: kWhiteColor),
                       fixedSize: Size(Get.width * 0.7, 45)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("G"),
-                      SizedBox(width: 12),
-                      Text("Sign In")
+                      Image.asset("assets/icons/atwitter.PNG", height: 30,width: 30,),
+                      const SizedBox(width: 12),
+                      const Text("Join with Twitter")
                     ],
                   ),
                 ),
@@ -162,12 +162,12 @@ class LoginScreen extends GetView<LoginScreenController> {
                   style: ElevatedButton.styleFrom(
                       side: const BorderSide(color: kWhiteColor),
                       fixedSize: Size(Get.width * 0.7, 45)),
-                  child: const Row(
+                  child:  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("G"),
-                      SizedBox(width: 12),
-                      Text("Sign In")
+                      Image.asset("assets/icons/agoogle.PNG", height: 30,width: 30,),
+                      const SizedBox(width: 12),
+                      const Text("Join with Google")
                     ],
                   ),
                 ),

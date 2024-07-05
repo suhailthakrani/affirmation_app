@@ -40,27 +40,13 @@ class HomeScreen extends GetView<HomeScreenController> {
           ),
         ),
         actions: [
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              elevation: 0,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8,
-                vertical: 4,
-              ),
-              backgroundColor: kPrimaryColor.withOpacity(0.5),
-              fixedSize: const Size(45, 55),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
-            ),
-            onPressed: () {},
-            child: Image.asset(
-              "assets/icons/notification.png",
-              height: 35,
-              width: 35,
-            ),
+          Container(
+            margin: const EdgeInsets.only(right: 20),
+            height: 48,
+            width: 48,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: Colors.grey.shade900),
+            child: const Icon(Icons.notifications_none, color: Colors.white, size: 36,),
           ),
-          const SizedBox(width: 20)
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(5),

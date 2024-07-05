@@ -276,7 +276,7 @@ class RemindersScreen extends GetView<RemindersScreenController> {
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: () async {
-                  await controller.scheduledNotification();
+                  controller.scheduledNotification().then((_)=>Get.back());
                 },
                 child: Container(
                   width: Get.width,

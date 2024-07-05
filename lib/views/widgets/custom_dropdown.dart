@@ -44,7 +44,7 @@ class CustomDropdown extends StatelessWidget {
                 children: <Widget>[
                   Obx(()=> DropdownButton(
                     borderRadius: BorderRadius.circular(15),
-                    dropdownColor: Colors.grey,
+                    dropdownColor: Colors.transparent,
                     value: controller.selectedItem.value,
                     isExpanded: true,
                     underline: const SizedBox(),

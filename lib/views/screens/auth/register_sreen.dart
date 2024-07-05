@@ -139,12 +139,12 @@ class RegisterScreen extends GetView<RegisterScreenController> {
                   style: ElevatedButton.styleFrom(
                       side: const BorderSide(color: kWhiteColor),
                       fixedSize: Size(Get.width * 0.7, 45)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("G"),
-                      SizedBox(width: 12),
-                      Text("Join with Google")
+                      Image.asset("assets/icons/agoogle.PNG", height: 30,width: 30,),
+                      const SizedBox(width: 12),
+                      const Text("Join with Google")
                     ],
                   ),
                 ),
@@ -154,12 +154,12 @@ class RegisterScreen extends GetView<RegisterScreenController> {
                   style: ElevatedButton.styleFrom(
                       side: const BorderSide(color: kWhiteColor),
                       fixedSize: Size(Get.width * 0.7, 45)),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("G"),
-                      SizedBox(width: 12),
-                      Text("Join with Twitter")
+                      Image.asset("assets/icons/atwitter.PNG", height: 30,width: 30,),
+                      const SizedBox(width: 12),
+                      const Text("Join with Twitter")
                     ],
                   ),
                 ),
@@ -169,12 +169,12 @@ class RegisterScreen extends GetView<RegisterScreenController> {
                   style: ElevatedButton.styleFrom(
                       side: const BorderSide(color: kWhiteColor),
                       fixedSize: Size(Get.width * 0.7, 45)),
-                  child: const Row(
+                  child:  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("G"),
-                      SizedBox(width: 12),
-                      Text("Join with Facebook")
+                      Image.asset("assets/icons/afacbook.PNG", height: 30,width: 30,),
+                      const SizedBox(width: 12),
+                      const Text("Join with Facebook")
                     ],
                   ),
                 ),

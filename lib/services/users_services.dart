@@ -47,7 +47,7 @@ class UserServices {
      if(credential.user != null && credential.user!.uid.isNotEmpty) {
       return "Success";
      }
-    } on FirebaseAuthException catch (e) {
+    } on FirebaseAuthException catch (e,d) {
       if (e.code == 'user-not-found') {
         return "user-not-found";
       }else if (e.code == 'wrong-password') {
@@ -56,7 +56,7 @@ class UserServices {
       else if (e.code == 'invalid-credential') {
         return "invalid-login-credentials";
       }else {
-        return e.toString();
+        return "$d"+e.toString();
       }
     }
     return "";

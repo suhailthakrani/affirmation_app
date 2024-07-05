@@ -14,11 +14,11 @@ class MainScreen extends GetView<MainScreenController> {
       backgroundColor: kPrimaryDarkColor,
       body: Obx(()=>controller.views[controller.selectedIndex.value]),
       bottomNavigationBar: Obx(()=>Container(
-        padding: EdgeInsets.symmetric(horizontal: 4,vertical: 4),
-        margin: EdgeInsets.symmetric(horizontal: 12, vertical:12),
+        padding: const EdgeInsets.symmetric(horizontal: 4,vertical: 4),
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical:12),
         decoration: BoxDecoration(
           color: kPrimaryDarkColor,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               offset: Offset(-1, -2),
               color: Colors.black38,
