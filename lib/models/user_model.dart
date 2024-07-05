@@ -4,6 +4,7 @@ class UserModel {
   String uuid = "";
   String name = "";
   String email = "";
+  String password = "";
   String ageGroup = "";
   String occupation = "";
   String currentIncome = "";
@@ -29,15 +30,20 @@ class UserModel {
     name = json['name'] ?? "";
     occupation = json['occupation'] ?? "";
     savingGoals = json['savingGoals'] ?? "";
-    uuid = json['uuid'] ?? "";
+    uuid = json['uid'] ?? "";
+  }
+
+  Map<String,dynamic> toJsonForRegister(){
+    return {
+      'uid': uuid,
+      "name" : name,
+      "email" : email,
+    };
   }
 
 
-  Map<String,dynamic> toJson(){
+  Map<String,dynamic> toJsonForUpdate(){
     return {
-      'uuid': uuid,
-      "name" : name,
-      "email" : email,
       "ageGroup" : ageGroup,
       'currentIncome': currentIncome,
       'debtAmount': debtAmount,

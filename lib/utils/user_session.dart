@@ -20,7 +20,7 @@ class UserSession {
   Future<bool> createSession({required UserModel user}) async {
     final preference = await SharedPreferences.getInstance();
     userModel.value = user;
-    return preference.setString('USER_DATA', jsonEncode(userModel.value.toJson()));
+    return preference.setString('USER_DATA', jsonEncode(userModel.value.toJsonForRegister()));
   }
 
   Future<bool> isUserLoggedIn() async {

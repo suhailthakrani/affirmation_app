@@ -85,7 +85,9 @@ class LoginScreen extends GetView<LoginScreenController> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () async {
+                        await controller.login(context);
+                      },
                       child: const Padding(
                         padding: EdgeInsets.only(top: 8.0, right: 4),
                         child: Text("Forgot Password?"),

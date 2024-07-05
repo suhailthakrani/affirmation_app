@@ -34,10 +34,13 @@ class UserDetailsInputScreenScreen
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Align(
+                Align(
                   alignment: Alignment.centerRight,
                   child: InkWell(
-                    child: Wrap(
+                    onTap: (){
+                      Get.toNamed(kMainScreenRoute);
+                    },
+                    child: const Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       children: [
                         Text(

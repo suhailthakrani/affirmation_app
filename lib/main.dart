@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "Affirmation App",
-      initialRoute: kUserDetailsInputScreenRoute,
+      initialRoute: kRegisterScreenRoute,
       initialBinding: ScreensBindings(),
       getPages: RouteManagement.getPages(),
       theme: ThemeData.dark(useMaterial3: true).copyWith(
