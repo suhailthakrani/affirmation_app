@@ -5,6 +5,7 @@ import 'package:affirmation_app/views/screens/auth/user_details_input_screen.dar
 import 'package:affirmation_app/views/screens/home/home_screen.dart';
 import 'package:affirmation_app/views/screens/intro/intro_screen.dart';
 import 'package:affirmation_app/views/screens/main_screen.dart';
+import 'package:affirmation_app/views/screens/profile/components/reminders_screen.dart';
 import 'package:affirmation_app/views/screens/profile/profile_screen.dart';
 import 'package:affirmation_app/views/screens/progress/progress_screen.dart';
 import 'package:get/get.dart';
@@ -59,6 +60,12 @@ class RouteManagement {
       GetPage(
         name: kUserDetailsInputScreenRoute,
         page: () => const UserDetailsInputScreenScreen(),
+        binding: ScreensBindings(),
+      ),
+
+      GetPage(
+        name: kRemindersScreenRoute,
+        page: () => const RemindersScreen(),
         binding: ScreensBindings(),
       ),
     ];

@@ -5,6 +5,7 @@ import 'package:affirmation_app/controllers/login_screen_controller.dart';
 import 'package:affirmation_app/controllers/profile_screen_controller.dart';
 import 'package:affirmation_app/controllers/progress_screen_controller.dart';
 import 'package:affirmation_app/controllers/register_screen_controller.dart';
+import 'package:affirmation_app/controllers/reminders_screen_controller.dart';
 import 'package:get/get.dart';
 
 import '../controllers/main_screen_controller.dart';
@@ -23,5 +24,6 @@ class ScreensBindings extends Bindings {
     Get.lazyPut(() => LoginScreenController());
     Get.lazyPut(() => RegisterScreenController());
     Get.lazyPut(() => UserDetailsInputScreenScreenController());
+    Get.lazyPut(() => RemindersScreenController());
   }
 }

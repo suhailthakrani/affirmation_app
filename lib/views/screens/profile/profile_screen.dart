@@ -1,3 +1,4 @@
+import 'package:affirmation_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +15,11 @@ class ProfileScreen extends GetView<ProfileScreenController> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text("Profile Screen"),
+      ),
+      body: Center(
+        child: ElevatedButton(onPressed: (){
+          Get.toNamed(kRemindersScreenRoute);
+        }, child: Text("Reminders")),
       ),
     );
   }
