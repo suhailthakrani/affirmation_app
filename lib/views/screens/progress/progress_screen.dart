@@ -12,6 +12,7 @@ class ProgressScreen extends GetView<ProgressScreenController> {
     return Scaffold(
       backgroundColor: kPrimaryDarkColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text("Progress Screen"),
       ),
     );

@@ -12,6 +12,7 @@ class ProfileScreen extends GetView<ProfileScreenController> {
     return Scaffold(
       backgroundColor: kPrimaryDarkColor,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text("Profile Screen"),
       ),
     );

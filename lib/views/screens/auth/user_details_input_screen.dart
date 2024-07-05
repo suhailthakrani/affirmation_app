@@ -34,13 +34,29 @@ class UserDetailsInputScreenScreen
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 24),
+                const Align(
+                  alignment: Alignment.centerRight,
+                  child: InkWell(
+                    child: Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        Text(
+                          "Skip",
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        Icon(Icons.arrow_forward_ios, size: 20),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
                 const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Let's set your first money goal,",
                     style: TextStyle(
                       fontSize: 24,
+                      height: 1,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -48,19 +64,26 @@ class UserDetailsInputScreenScreen
                 const Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
-                    padding: EdgeInsets.only(top: 8.0, right: 24, left: 2),
+                    padding: EdgeInsets.only(top: 16, right: 24, left: 4),
                     child: Text(
                       "Below are some question which can help you with that",
                       style: TextStyle(
-                          fontSize: 12, wordSpacing: 1.5, letterSpacing: 0.6),
+                        fontSize: 12,
+                        wordSpacing: 1.5,
+                        letterSpacing: 0.6,
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(height: Get.height * 0.06),
+                SizedBox(height: Get.height * 0.05),
                 GeneralTextField(
                   controller: controller.nameController,
                   hint: "Name",
-                  prefix: const Icon(Icons.email),
+                ),
+                const SizedBox(height: 20),
+                GeneralTextField(
+                  controller: controller.ageGroupController,
+                  hint: "Age Group",
                 ),
                 const SizedBox(height: 12),
                 CustomDropdown(controller: controller.ocupationDDController),
@@ -76,7 +99,6 @@ class UserDetailsInputScreenScreen
                 GeneralTextField(
                   controller: controller.desiredIncomeController,
                   hint: "Desired Income",
-                  prefix: const Icon(Icons.email),
                 ),
                 const SizedBox(height: 20),
                 GeneralTextField(
@@ -99,9 +121,11 @@ class UserDetailsInputScreenScreen
       bottomSheet: Container(
         width: Get.width,
         color: Colors.grey.shade900,
-        padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.toNamed(kMainScreenRoute);
+          },
           style: ElevatedButton.styleFrom(
               side: const BorderSide(color: kWhiteColor),
               fixedSize: Size(Get.width * 0.9, 55)),

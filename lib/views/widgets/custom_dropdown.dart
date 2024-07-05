@@ -34,7 +34,7 @@ class CustomDropdown extends StatelessWidget {
                 borderSide:  const BorderSide(color: kWhiteColor)
             ),
             child: Container(
-              padding: const EdgeInsets.only(left: 10, right: 4.0),
+              padding: const EdgeInsets.only(left: 16, right: 8),
               decoration: BoxDecoration(
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(30),
@@ -48,7 +48,7 @@ class CustomDropdown extends StatelessWidget {
                     value: controller.selectedItem.value,
                     isExpanded: true,
                     underline: const SizedBox(),
-                    icon: Icon(Icons.arrow_drop_down, size: 40, color: readOnly ? kLightGreyColor : controller.items.isEmpty ? kLightGreyColor : kWhiteColor ),
+                    icon: Icon(Icons.keyboard_arrow_down, size: 30, color: readOnly ? kLightGreyColor : controller.items.isEmpty ? kLightGreyColor : kWhiteColor ),
                     iconEnabledColor: kWhiteColor,
                     items: readOnly ? null : controller.items.map<DropdownMenuItem>((selectedItem) {
                       return DropdownMenuItem(
@@ -62,7 +62,7 @@ class CustomDropdown extends StatelessWidget {
                     }).toList(),
                     hint: Text(
                       (readOnly && controller.selectedItem.value!=null) ? controller.selectedItem.value.toString() : 'Select ${controller.title}',
-                      style: const TextStyle(color:  kWhiteColor)
+                      style: const TextStyle(color:  kWhiteColor, fontWeight: FontWeight.w300)
                     ),
                     onChanged: (selectedItem){
                       controller.selectedItem.value = selectedItem;

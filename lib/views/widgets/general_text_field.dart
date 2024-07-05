@@ -6,8 +6,8 @@ import '../../utils/app_colors.dart';
 class GeneralTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hint;
-  final Widget prefix;
-  final Widget postfix;
+  final Widget? prefix;
+  final Widget? postfix;
   final bool obscureText;
   final TextInputType keyboardType;
   
@@ -15,8 +15,8 @@ class GeneralTextField extends StatelessWidget {
     super.key,
     required this.controller,
     required this.hint,
-    this.prefix = const SizedBox(height: 4, width: 4),
-    this.postfix = const SizedBox(height: 4, width: 4),
+    this.prefix,
+    this.postfix,
     this.obscureText = false,
     this.keyboardType = TextInputType.none,
     
@@ -30,6 +30,8 @@ class GeneralTextField extends StatelessWidget {
         border: Border.all(color: const Color(0xffeeeeee)),
         borderRadius: BorderRadius.circular(30),
       ),
+      margin: EdgeInsets.symmetric(horizontal: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: TextField(
         obscureText: obscureText,
         controller: controller,
@@ -47,9 +49,9 @@ class GeneralTextField extends StatelessWidget {
           filled: true,
           fillColor: Colors.transparent,
           contentPadding:
-              const EdgeInsets.only(top: 10.0, left: 10, bottom: 10),
+              const EdgeInsets.only(top: 8, left: 8, bottom: 8),
           hintText: hint,
-          hintStyle: const TextStyle(color: kWhiteColor, fontSize: 14, fontWeight: FontWeight.w500),
+          hintStyle: const TextStyle(color: kWhiteColor, fontSize: 16, fontWeight: FontWeight.w300),
           prefixIcon: prefix,
           suffixIcon: postfix,
         ),
