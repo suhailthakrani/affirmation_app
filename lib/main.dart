@@ -17,14 +17,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "Affirmation App",
-      initialRoute: kLoginScreenRoute,
+      initialRoute: kUserDetailsInputScreenRoute,
       initialBinding: ScreensBindings(),
       getPages: RouteManagement.getPages(),
       theme: ThemeData.dark(useMaterial3: true).copyWith(
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
-          colorScheme: ColorScheme.dark(
-            primary: Colors.green.shade500,
+          colorScheme: const ColorScheme.dark(
+            primary: Colors.white,
             onPrimary: kPrimaryDarkColor,
             surface: kPrimaryDarkColor,
             onSecondary: kWhiteColor,

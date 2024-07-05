@@ -8,6 +8,7 @@ import 'package:affirmation_app/controllers/register_screen_controller.dart';
 import 'package:get/get.dart';
 
 import '../controllers/main_screen_controller.dart';
+import '../controllers/user_details_input_screen_controller.dart';
 
 class ScreensBindings extends Bindings {
   @override
@@ -21,5 +22,6 @@ class ScreensBindings extends Bindings {
     Get.lazyPut(() => ProfileScreenController());
     Get.lazyPut(() => LoginScreenController());
     Get.lazyPut(() => RegisterScreenController());
+    Get.lazyPut(() => UserDetailsInputScreenScreenController());
   }
 }

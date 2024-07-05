@@ -1,28 +1,51 @@
 
 
 class UserModel {
-  String id = '';
+  String uuid = "";
   String name = "";
   String email = "";
-  String group = "";
+  String ageGroup = "";
+  String occupation = "";
+  String currentIncome = "";
+  String desiredIncome = "";
+  String desiredOccupation = "";
+  String debtAmount = "";
+  String debtType = "";
+  String savingGoals = "";
 
   UserModel.empty();
 
   UserModel.fromJSON(Map<String,dynamic> json){
-    id = "${json["id"]??''}";
+    uuid = "${json["uuid"]??''}";
     name = json["name"]??"";
     email = json["email"]??"";
-    group = '${json["group"]??""}';
+    ageGroup = '${json["ageGroup"]??""}';
+    currentIncome = json['currentIncome'] ?? "";
+    debtAmount = json['debtAmount'] ?? "";
+    debtType = json['debtType'] ?? "";
+    desiredIncome = json['desiredIncome'] ?? "";
+    desiredOccupation = json['desiredOccupation'] ?? "";
+    email = json['email'] ?? "";
+    name = json['name'] ?? "";
+    occupation = json['occupation'] ?? "";
+    savingGoals = json['savingGoals'] ?? "";
+    uuid = json['uuid'] ?? "";
   }
 
 
   Map<String,dynamic> toJson(){
     return {
-      "id" : id,
+      'uuid': uuid,
       "name" : name,
       "email" : email,
-      "group" : group,
-      
+      "ageGroup" : ageGroup,
+      'currentIncome': currentIncome,
+      'debtAmount': debtAmount,
+      'debtType': debtType,
+      'desiredIncome': desiredIncome,
+      'desiredOccupation': desiredOccupation,
+      'occupation': occupation,
+      'savingGoals': savingGoals,
     };
   }
 }

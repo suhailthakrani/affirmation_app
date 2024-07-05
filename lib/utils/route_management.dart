@@ -1,6 +1,7 @@
 import 'package:affirmation_app/views/screens/affirmation/affirmation_screen.dart';
 import 'package:affirmation_app/views/screens/auth/login_sreen.dart';
 import 'package:affirmation_app/views/screens/auth/register_sreen.dart';
+import 'package:affirmation_app/views/screens/auth/user_details_input_screen.dart';
 import 'package:affirmation_app/views/screens/home/home_screen.dart';
 import 'package:affirmation_app/views/screens/intro/intro_screen.dart';
 import 'package:affirmation_app/views/screens/main_screen.dart';
@@ -53,6 +54,11 @@ class RouteManagement {
       GetPage(
         name: kRegisterScreenRoute,
         page: () => const RegisterScreen(),
+        binding: ScreensBindings(),
+      ),
+      GetPage(
+        name: kUserDetailsInputScreenRoute,
+        page: () => const UserDetailsInputScreenScreen(),
         binding: ScreensBindings(),
       ),
     ];

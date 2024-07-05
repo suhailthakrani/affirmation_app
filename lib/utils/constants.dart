@@ -10,3 +10,4 @@ const String kAffirmationScreenRoute = "/AFFIRMATION_SCREEN";
 const String kProfileScreenRoute = "/PROFILE_SCREEN";
 const String kLoginScreenRoute = "/LOGIN_SCREEN";
 const String kRegisterScreenRoute = "/REGISTER_SCREEN";
+const String kUserDetailsInputScreenRoute = "/USER_DETAILS_INPUT_SCREEN";
