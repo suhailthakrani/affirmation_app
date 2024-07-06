@@ -29,6 +29,7 @@ class CustomDropdown extends StatelessWidget {
         children: [
           Card(
             elevation: 0,
+            color: Colors.transparent,
             shape: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
                 borderSide:  const BorderSide(color: kWhiteColor)
@@ -36,7 +37,7 @@ class CustomDropdown extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.only(left: 16, right: 8),
               decoration: BoxDecoration(
-                color: Colors.transparent,
+                color: Colors.transparent.withAlpha(100),
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Column(
@@ -44,7 +45,7 @@ class CustomDropdown extends StatelessWidget {
                 children: <Widget>[
                   Obx(()=> DropdownButton(
                     borderRadius: BorderRadius.circular(15),
-                    dropdownColor: Colors.transparent,
+                    dropdownColor: kPrimaryDarkColor,
                     value: controller.selectedItem.value,
                     isExpanded: true,
                     underline: const SizedBox(),

@@ -15,11 +15,7 @@ void onDidReceiveNotificationResponse(NotificationResponse notificationResponse)
 void handleNotificationResponse(NotificationResponse notificationResponse) {
   print('----------------PAYLOAD: ${notificationResponse.payload}');
   if (notificationResponse.payload != null) {
-    // if(notificationResponse.payload == kDoseDetailScreenRoute){
-    //   Get.toNamed(kDoseDetailScreenRoute);
-    // }else{
-    //   Get.toNamed(kHomeScreenRoute);
-    // }
+    //TODO: ADD payload on affirmationy
   }
 }
 class LocalNotificationService extends GetxService {
@@ -38,27 +34,6 @@ class LocalNotificationService extends GetxService {
     );
   }
 
-  void showNotification(int id, String body, {required String title, bool doPersist = true, String payload = ''}) async {
-    AndroidNotificationDetails androidNotificationDetails = AndroidNotificationDetails(
-      "com.example.affirmation_app",
-      "channelName",
-      importance: Importance.max,
-      playSound: true,
-      priority: Priority.high,
-      onlyAlertOnce: true,
-      ongoing: doPersist,
-      enableVibration: true,
-      enableLights: true,
-      // sound: const RawResourceAndroidNotificationSound('extreme_alarm_clock')
-    );
-    DarwinNotificationDetails iosDetails = const DarwinNotificationDetails(
-      presentAlert: true,
-      presentBadge: true,
-    );
-    NotificationDetails notificationDetails = NotificationDetails(android: androidNotificationDetails, iOS: iosDetails);
-
-    await flutterLocalNotificationsPlugin.show(id, title, body, notificationDetails, payload: payload);
-  }
 
   Future<void> showScheduledNotification({
     required int id,
@@ -92,12 +67,13 @@ class LocalNotificationService extends GetxService {
             ongoing: true,
             enableVibration: true,
             enableLights: true,
+            //todo: add sound in raw folder in res
             // sound: RawResourceAndroidNotificationSound('extreme_alarm_clock')/*UriAndroidNotificationSound("assets/tunes/extreme_alarm_clock.mp3")*/,
           ),
         ),
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
         uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
-        matchDateTimeComponents: DateTimeComponents.dateAndTime,
+        matchDateTimeComponents: DateTimeComponents.time,
         payload: payload,
       );
       log('Scheduled successfully......');

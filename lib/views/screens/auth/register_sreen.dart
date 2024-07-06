@@ -105,7 +105,7 @@ class RegisterScreen extends GetView<RegisterScreenController> {
                 const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
-                    Get.toNamed(kUserDetailsInputScreenRoute);
+                    controller.register(context);
                   },
                   style: ElevatedButton.styleFrom(
                       side: const BorderSide(color: kWhiteColor),

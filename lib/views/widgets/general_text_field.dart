@@ -10,7 +10,7 @@ class GeneralTextField extends StatelessWidget {
   final Widget? postfix;
   final bool obscureText;
   final TextInputType keyboardType;
-  
+  final int maxLines;
   const GeneralTextField({
     super.key,
     required this.controller,
@@ -19,20 +19,21 @@ class GeneralTextField extends StatelessWidget {
     this.postfix,
     this.obscureText = false,
     this.keyboardType = TextInputType.none,
-    
+    this.maxLines = 1,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.transparent.withAlpha(150),
+        color: Colors.transparent.withAlpha(100),
         border: Border.all(color: const Color(0xffeeeeee)),
         borderRadius: BorderRadius.circular(30),
       ),
       margin: EdgeInsets.symmetric(horizontal: 3),
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: TextField(
+        maxLines: maxLines,
         obscureText: obscureText,
         controller: controller,
         textInputAction: TextInputAction.next,

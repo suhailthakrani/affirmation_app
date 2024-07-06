@@ -9,8 +9,8 @@ class UserServices {
     try {
       UserCredential credential =  await FirebaseAuth.instance.createUserWithEmailAndPassword(email: model.email, password: model.password);
      if(credential.user != null && credential.user!.uid.isNotEmpty) {
-      //TODO: Save User Info to Firebase
-      await FirebaseFirestore.instance.collection("users").add(model.toJsonForRegister());
+      model.uuid = credential.user!.uid;
+      await FirebaseFirestore.instance.collection("users").doc(credential.user!.uid).set(model.toJsonForRegister());
       return "Success";
      }
     } on FirebaseAuthException catch (e) {
@@ -25,17 +25,15 @@ class UserServices {
 
   Future<String> updateUserDetails({required UserModel model})async{
     try {
-      UserCredential credential =  await FirebaseAuth.instance.createUserWithEmailAndPassword(email: model.email, password: model.password);
-     if(credential.user != null && credential.user!.uid.isNotEmpty) {
-      await FirebaseFirestore.instance.collection("users").add(model.toJsonForUpdate());
-      return "Success";
-     }
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
-        return "ERROR_EMAIL_ALREADY_IN_USE";
-      } else {
-        return e.toString();
+      var user = FirebaseAuth.instance.currentUser;
+      if( user != null ) {
+        await FirebaseFirestore.instance.collection("users").doc(user.uid).update(model.toJsonForUpdate());
+        return "Success";
       }
+    } on FirebaseAuthException catch (e) {
+
+        return e.toString();
+
     }
     return "";
   }

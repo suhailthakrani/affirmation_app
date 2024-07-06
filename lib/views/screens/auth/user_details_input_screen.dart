@@ -105,17 +105,18 @@ class UserDetailsInputScreenScreen
                 ),
                 const SizedBox(height: 20),
                 GeneralTextField(
-                  controller: controller.debtAmountIncomeController,
+                  controller: controller.debtAmountController,
                   hint: "Debt Amount",
                 ),
                 const SizedBox(height: 12),
                 CustomDropdown(controller: controller.debtTypeDDController),
                 const SizedBox(height: 12),
                 GeneralTextField(
-                  controller: controller.ageGroupController,
+                  controller: controller.savingGoalsController,
                   hint: "Savings Goals:",
+                  maxLines: 4,
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 100),
               ],
             ),
           ),
@@ -126,8 +127,8 @@ class UserDetailsInputScreenScreen
         color: Colors.grey.shade900,
         padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
         child: ElevatedButton(
-          onPressed: () {
-            Get.toNamed(kMainScreenRoute);
+          onPressed: () async {
+            await controller.updateUserDetails(context);
           },
           style: ElevatedButton.styleFrom(
               side: const BorderSide(color: kWhiteColor),

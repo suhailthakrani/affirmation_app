@@ -1,4 +1,5 @@
 import 'package:affirmation_app/utils/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -80,7 +81,7 @@ class GeneralScreen extends StatelessWidget {
                     return ListTile(
                       onTap: (){
                         if(othersList[index] == "Logout") {
-                          Get.offAllNamed(kLoginScreenRoute);
+                          FirebaseAuth.instance.signOut().then((_)=>Get.offAllNamed(kLoginScreenRoute));
                         }
                       },
                       contentPadding: EdgeInsets.zero,

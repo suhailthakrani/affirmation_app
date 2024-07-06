@@ -10,73 +10,55 @@ import '../services/users_services.dart';
 class UserDetailsInputScreenScreenController extends GetxController {
   TextEditingController nameController = TextEditingController();
   TextEditingController ageGroupController = TextEditingController();
-  DropdownController ocupationDDController = DropdownController(title: "", items: RxList([
+  DropdownController ocupationDDController = DropdownController(title: "Occupation", items: RxList([
     "Programmer",
     "Teacher"
   ]));
   TextEditingController currentIncomeController = TextEditingController();
-  DropdownController desiredOcupationDDController = DropdownController(title: "", items: RxList(["Programmer",
+  DropdownController desiredOcupationDDController = DropdownController(title: "Desired Occupation", items: RxList(["Programmer",
     "Teacher"]));
   TextEditingController desiredIncomeController = TextEditingController();
-  TextEditingController debtAmountIncomeController = TextEditingController();
-  DropdownController debtTypeDDController = DropdownController(title: "", items: RxList(["Type1", "Type2"]));
+  TextEditingController debtAmountController = TextEditingController();
+  DropdownController debtTypeDDController = DropdownController(title: "Debt Type", items: RxList(["Type1", "Type2"]));
   TextEditingController savingGoalsController = TextEditingController();
 
 
-  Future<void> register(context) async {
-    UserModel userModel = updateUserModel(
-      ageGroupController,
-      ocupationDDController,
-      currentIncomeController,
-      desiredIncomeController,
-      desiredOcupationDDController,
-      debtAmountIncomeController,
-      debtTypeDDController,
-      savingGoalsController
-    );
-    String result = await UserServices().registerUser(model:userModel);
-    if(result == "Success") {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Details Updated Successfully!")));
-      Get.toNamed(kMainScreenRoute);
+  Future<void> updateUserDetails(context) async {
+    if(validateData()) {
+      UserModel userModel = UserModel.empty();
+      userModel.name = nameController.text;
+      userModel.ageGroup = ageGroupController.text;
+      userModel.occupation = ocupationDDController.selectedItem.value;
+      userModel.currentIncome = currentIncomeController.text;
+      userModel.desiredOccupation = desiredOcupationDDController.selectedItem.value;
+      userModel.desiredIncome = desiredIncomeController.text;
+      userModel.debtAmount = debtAmountController.text;
+      userModel.debtType = debtTypeDDController.selectedItem.value;
+      userModel.savingGoals = savingGoalsController.text;
+      String result = await UserServices().updateUserDetails(model:userModel);
+      if(result == "Success") {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Details Updated Successfully!")));
+        Get.toNamed(kMainScreenRoute);
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Please enter correct data!")));
     }
+
   }
 
-  UserModel updateUserModel(
-    TextEditingController ageGroupController,
-    DropdownController occupationController,
-    TextEditingController currentIncomeController,
-    TextEditingController desiredIncomeController,
-    DropdownController desiredOccupationController,
-    TextEditingController debtAmountController,
-    DropdownController debtTypeController,
-    TextEditingController savingGoalsController
-  ) {
-    UserModel userModel = UserModel.empty();
-    if (ageGroupController.text.isNotEmpty) {
-      userModel.ageGroup = ageGroupController.text;
-    }
-    if (occupationController.validate()) {
-      userModel.occupation = occupationController.selectedItem.value;
-    }
-    if (currentIncomeController.text.isNotEmpty) {
-      userModel.currentIncome = currentIncomeController.text;
-    }
-    if (desiredIncomeController.text.isNotEmpty) {
-      userModel.desiredIncome = desiredIncomeController.text;
-    }
-    if (desiredOccupationController.validate()) {
-      userModel.occupation = desiredOccupationController.selectedItem.value;
-    }
-    if (debtAmountController.text.isNotEmpty) {
-      userModel.debtAmount = debtAmountController.text;
-    }
-    if (debtTypeController.validate()) {
-      userModel.occupation = debtTypeController.selectedItem.value;
-    }
-    if (savingGoalsController.text.isNotEmpty) {
-      userModel.savingGoals = savingGoalsController.text;
-    }
-    return userModel;
+  bool validateData() {
+    bool result = true;
+    result = result &
+    ageGroupController.text.isNotEmpty &
+    (ocupationDDController.selectedItem.value!=null) &
+    currentIncomeController.text.isNotEmpty &
+    desiredIncomeController.text.isNotEmpty &
+    (desiredOcupationDDController.selectedItem.value!=null) &
+    debtAmountController.text.isNotEmpty &
+    (debtTypeDDController.selectedItem.value!=null) &
+    savingGoalsController.text.isNotEmpty;
+    return result;
   }
+
   
 }

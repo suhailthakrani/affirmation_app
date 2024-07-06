@@ -17,7 +17,7 @@ class RegisterScreenController extends GetxController {
     userModel.email = emailController.text;
     userModel.name = nameController.text;
     userModel.password = passwordController.text;
-    if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
+    if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty && nameController.text.isNotEmpty) {
       String result = await UserServices().registerUser(model:userModel);
       if(result == "Success") {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Registered Successfully!")));

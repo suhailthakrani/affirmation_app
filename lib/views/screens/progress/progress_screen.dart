@@ -9,11 +9,10 @@ class ProgressScreen extends GetView<ProgressScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: kPrimaryDarkColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text("Progress Screen"),
+      body: Center(
+        child: Text("Progress Screen"),
       ),
     );
   }
